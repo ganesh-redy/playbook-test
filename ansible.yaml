@@ -5,9 +5,8 @@
   
   vars:
     # Custom variables
-    app_name: "${name1}"
-    version: <+pipeline.variables.var2>
-
+    app_name: "{{ name }}"
+    version: "{{ ver }}"
   environment:
     # Set for this play
     APP_NAME: <+pipeline.variables.env1>
