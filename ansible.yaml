@@ -18,8 +18,7 @@
     - name: Print all variables
       debug:
         msg: |
-          System User: {{ from_system.user }}
-          Home: {{ from_system.home }}
+          version: {{ version }}
           App: {{ app_name }}
           
     - name: Check environment variables are set
