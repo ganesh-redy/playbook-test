@@ -5,13 +5,13 @@
   
   vars:
     # Custom variables
-    app_name: "<+pipeline.variables.var1>"
-    version: "<+pipeline.variables.var2>"
+    app_name: <+pipeline.variables.var1>
+    version: <+pipeline.variables.var2>
 
   environment:
     # Set for this play
-    APP_NAME: "<+pipeline.variables.env1>"
-    CURRENT_USER: "<+pipeline.variables.env1>"
+    APP_NAME: <+pipeline.variables.env1>
+    CURRENT_USER: <+pipeline.variables.env1>
 
   tasks:
     - name: Print all variables
