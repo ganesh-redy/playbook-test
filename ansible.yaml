@@ -18,6 +18,10 @@
         msg: |
           Version: {{ version }}
           App: {{ app_name }}
-          
     - name: Check environment variables are set
       shell: echo "APP_NAME=$APP_NAME, CURRENT_USER=$CURRENT_USER"
+      register: env_output
+    
+    - name: Show environment output
+      debug:
+        var: env_output.stdout
