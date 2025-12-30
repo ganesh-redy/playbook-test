@@ -1,0 +1,26 @@
+---
+- name: Complete Environment Variables Example
+  hosts: localhost
+  connection: local
+  
+  vars:
+
+    # Custom variables
+    app_name: "<+pipeline.variables.var1>"
+    version: "<+pipeline.variables.var2>"
+
+  environment:
+    # Set for this play
+    APP_NAME: "<+pipeline.variables.env1>"
+    CURRENT_USER: "<+pipeline.variables.env1>"
+
+  tasks:
+    - name: Print all variables
+      debug:
+        msg: |
+          System User: {{ from_system.user }}
+          Home: {{ from_system.home }}
+          App: {{ app_name }}
+          
+    - name: Check environment variables are set
+      shell: echo "APP_NAME=$APP_NAME, CURRENT_USER=$CURRENT_USER"
