@@ -5,21 +5,21 @@
   
   vars:
     # Custom variables
-    app_name: "{{ name }}"
+    #app_name: "{{ name }}"
     version: "{{ ver }}"
   environment:
     # Set for this play
     APP_NAME: "{{ app }}"
-    CURRENT_USER: "{{ user }}"
+    #CURRENT_USER: "{{ user }}"
 
   tasks:
     - name: Print all variables
       debug:
         msg: |
           Version: {{ version }}
-          App: {{ app_name }}
+          App: {{ app }}
     - name: Check environment variables are set
-      shell: echo "APP_NAME=$APP_NAME, CURRENT_USER=$CURRENT_USER"
+      shell: echo "APP_NAME=$APP_NAME"
       register: env_output
     
     - name: Show environment output
