@@ -25,7 +25,7 @@
     - name: Show environment output
       debug:
         var: env_output.stdout
-     - name: Create directory using environment variables
+    - name: Create directory using environment variables
       shell: |
         mkdir -p "/tmp/${APP_NAME}/${CURRENT_USER}"
       args:
@@ -44,4 +44,3 @@
     - name: Show directory check results
       debug:
         var: dir_check.stdout_lines
-       
