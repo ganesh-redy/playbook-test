@@ -10,7 +10,7 @@
   environment:
     # Set for this play
     APP_NAME: "{{ app }}"
-    #CURRENT_USER: "{{ user }}"
+    CURRENT_USER: "{{ user }}"
 
   tasks:
     - name: Print all variables
@@ -19,7 +19,7 @@
           Version: {{ version }}
           App: {{ app }}
     - name: Check environment variables are set
-      shell: echo "APP_NAME=$APP_NAME"
+      shell: echo "APP_NAME=$APP_NAME CURRENT=$CURRENT_USER"
       register: env_output
     
     - name: Show environment output
