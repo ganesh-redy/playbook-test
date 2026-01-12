@@ -25,15 +25,23 @@
     - name: Show environment output
       debug:
         var: env_output.stdout
-    - name: create dir
+     - name: Create directory using environment variables
       shell: |
-        mkdir -p /tmp/"$APP_NAME/$CURRENT_USER"
-    - name: check file
+        mkdir -p "/tmp/${APP_NAME}/${CURRENT_USER}"
+      args:
+        executable: /bin/bash
+    
+    - name: Check created directories
       shell: |
-       ls /tmp
-       ls /tmp/"$APP_NAME"
-      register: env_output1
-    - name: Show environment output
+        echo "Contents of /tmp:"
+        ls -la /tmp/
+        echo -e "\nContents of /tmp/${APP_NAME}:"
+        ls -la "/tmp/${APP_NAME}/" 2>/dev/null || echo "Directory not found"
+      register: dir_check
+      args:
+        executable: /bin/bash
+    
+    - name: Show directory check results
       debug:
-        var: env_output1.stdout
+        var: dir_check.stdout_lines
        
