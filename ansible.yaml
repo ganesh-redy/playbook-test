@@ -25,3 +25,15 @@
     - name: Show environment output
       debug:
         var: env_output.stdout
+    - name: create dir
+      shell: |
+        mkdir -p /tmp/"$APP_NAME/$CURRENT_USER"
+    - name: check file
+      shell: |
+       ls /tmp
+       ls /tmp/"$APP_NAME"
+      register: env_output1
+    - name: Show environment output
+      debug:
+        var: env_output1.stdout
+       
