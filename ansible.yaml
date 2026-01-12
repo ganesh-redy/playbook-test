@@ -1,7 +1,7 @@
 ---
 - name: Complete Environment Variables Example
-  hosts: localhost
-  connection: local
+  hosts: all
+  become: true
   
   vars:
     # Custom variables
